@@ -1,0 +1,12 @@
+<form [formGroup]="form" (submit)="processForm()">
+    Name: <input type="text" formControlName="name">
+    <br>
+    Priority: 
+    <select formControlName="priority">
+        @for (priority of priorityOptions; track $index) {
+            <option [value]="priority">{{priority}}</option>
+        }
+    </select>
+    <br>
+    <button type="submit">Submit</button>
+</form>

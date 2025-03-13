@@ -1,0 +1,20 @@
+@for (p of priorities; track $index) {
+    <button type="button" (click)="filter(p)">{{p}}</button>
+}
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Priority</th>
+    </thead>
+    @for (t of allTasks$ | async; track $index) {
+        <tr>
+            <td>{{t.name}}</td>
+            <td>{{t.priority}}</td>
+            <td>
+                <button type="button" (click)="deleteTask(t.id)">x</button>
+            </td>
+        </tr>
+    }
+
+</table>
